@@ -26,5 +26,12 @@ pipeline {
                 echo "deploying my code"
             }
         }
+        // Stage 4: Deploy to prod
+        stage('Deploy Prod') {
+            steps {
+                echo "deploying my code to prod"
+            }
+       }
+
     }
 }
