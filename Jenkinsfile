@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent { 
+        label 'linuxbuildnode' 
+    }
 
     stages {
         // Stage 1: SCM (Source Control Management)
@@ -19,12 +21,19 @@ pipeline {
                 echo "test step 2: linting"
             }
         }
+         
+        // Stage 3: Build
+        stage('Deploy') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
 
         // Stage 3: Deploy
         stage('Deploy') {
             steps {
-                echo "deploying my code"
-            }
+                sh 'java -jar target/*.jar'            }
         }
         // Stage 4: Deploy to prod
         stage('Deploy Prod') {
