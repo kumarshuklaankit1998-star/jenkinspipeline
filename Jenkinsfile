@@ -1,7 +1,5 @@
 pipeline {
-    agent { 
-        label 'linuxbuildnode' 
-    }
+    agent any
 
     stages {
         // Stage 1: SCM (Source Control Management)
