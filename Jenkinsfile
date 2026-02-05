@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh 'java -jar target/*.jar'            }
         }
-        // Stage 4: Deploy to prod
+        // Stage 4: Deploy kjdk to prod
         stage('Deploy Prod') {
             steps {
                 echo "deploying my code to prod"
